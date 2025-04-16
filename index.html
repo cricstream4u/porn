@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="Cric stream Favicon.jpg">
+  <title>TG-@cric_stream</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #jwplayerDiv {
+      width: 100%;
+      height: 100%;
+    }
+    .sticky-footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #fff;
+      color: white;
+      text-align: center;
+      padding: 0px;
+    }
+  </style>
+  <script src="https://cdn.jwplayer.com/libraries/SAHhwvZq.js"></script>
+</head>
+<body>
+
+<script>
+  // Disable right-click and common dev tools keys
+  document.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("keydown", function(e) {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+    }
+  });
+
+  // Optional DevTools detection
+  (function() {
+    const element = new Image();
+    Object.defineProperty(element, 'id', {
+      get: function () {
+        throw new Error("DevTools detected");
+      }
+    });
+    setInterval(() => console.dir(element), 1000);
+  })();
+</script>
+
+<div id="jwplayerDiv"></div>
+
+<script>
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  const videoUrl = getQueryParam("file");
+
+  if (!videoUrl) {
+    alert("No video URL provided. Please add a 'file' parameter to the URL.");
+  } else {
+    // Determine type by file extension
+    const fileType = videoUrl.endsWith(".m3u8") ? "hls" : "mp4";
+
+    jwplayer("jwplayerDiv").setup({
+      file: videoUrl,
+      width: "100%",
+      height: "100%",
+      aspectratio: "16:9",
+      autostart: true,
+      mute: false,
+      type: fileType,
+      preload: "auto",
+      cast: { appid: "CC1AD845" }
+    });
+  }
+</script>
+
+<!-- BEGIN: Powered by Supercounters.com -->
+<center>
+  <script type="text/javascript" src="//widget.supercounters.com/ssl/online_t.js"></script>
+  <script type="text/javascript">
+    sc_online_t(1707487, "Users Online", "170ddb");
+  </script><br>
+  <noscript><a href="https://www.supercounters.com/">supercounters.com</a></noscript>
+</center>
+<!-- END: Powered by Supercounters.com -->
+
+<div style="background-color: #0074d9; text-align: center; padding: 10px;">
+  <a href="https://t.me/cric_stream" target="_blank">
+    <button id="joinTelegramButton">Join Telegram</button>
+  </a>
+</div>
+<br><br><br><br><br><br>
+
+<!--Adsterra-->
+<div class="sticky-footer">
+  <center>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '86d595490b53de20542964b56ca467e7',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//carryglanced.com/86d595490b53de20542964b56ca467e7/invoke.js"></script>
+  </center>
+</div>
+
+</body>
+</html>
